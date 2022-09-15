@@ -1,7 +1,8 @@
 #!/bin/bash
-PROJECT_DIR=${HOME}/omniflix/insync-test/insync
+PROJECT_DIR=${HOME}/omniflix/insync-dev/insync
 if [[ ! -d ${PROJECT_DIR} ]]; then
-  cd "${HOME}/insync-test" &&
+  mkdir -p ${HOME}/omniflix/insync-dev
+  cd "${HOME}/omniflix/insync-dev" &&
     git clone git@github.com:OmniFlix/insync.git
 fi
 
@@ -11,6 +12,6 @@ cd "${PROJECT_DIR}" &&
   git pull origin development &&
   yarn &&
   yarn build &&
-  mkdir -p /var/www/insync-flixnet &&
-  sudo rm -rf /var/www/insync-flixnet/* &&
-  sudo mv "${PROJECT_DIR}"/build/ /var/www/insync-flixnet/
+  mkdir -p /var/www/insync-dev &&
+  sudo rm -rf /var/www/insync-dev/* &&
+  sudo mv "${PROJECT_DIR}"/build/ /var/www/insync-dev/
