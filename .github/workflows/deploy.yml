@@ -27,6 +27,7 @@ jobs:
           username: ${{ secrets.INSYNC_DEV_SSH_USER }}
           key: ${{ secrets.INSYNC_DEV_SSH_KEY }}
           port: ${{ secrets.PORT }}
+          envs: GITHUB_REPOSITORY,DEPLOY_DIR
           script: |
             [ -d "$HOME/$GITHUB_REPOSITORY" ] && rm -rf "$HOME/$GITHUB_REPOSITORY"
             mkdir -p "$HOME/$GITHUB_REPOSITORY"
