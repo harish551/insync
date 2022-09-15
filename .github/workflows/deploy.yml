@@ -20,7 +20,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: login to remote instance
+      - name: login to remote instance and build app
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.INSYNC_DEV_SSH_SERVER }}
@@ -33,11 +33,10 @@ jobs:
             mkdir -p "$HOME/$GITHUB_REPOSITORY"
             git clone https://github.com/$GITHUB_REPOSITORY "$HOME/$GITHUB_REPOSITORY"
             cd "$HOME/$GITHUB_REPOSITORY"
-            git stash &&
-              git checkout development &&
+            git checkout development &&
               git pull origin development &&
               yarn &&
               yarn build &&
               sudo rm -rf "${DEPLOY_DIR}" &&
-              mkdir -p "${DEPLOY_DIR}" &&
+              sudo mkdir -p "${DEPLOY_DIR}" &&
               sudo mv ./build/ "${DEPLOY_DIR}"
