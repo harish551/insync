@@ -14,8 +14,8 @@ export const config = {
     COIN_TYPE: 118,
     COSMOSTAION: 'omniflix',
     COINGECKO_ID: 'omniflix-network',
-    GAS_PRICE_STEP_LOW: 0.001,
-    GAS_PRICE_STEP_AVERAGE: 0.0025,
+    GAS_PRICE_STEP_LOW: 0.005,
+    GAS_PRICE_STEP_AVERAGE: 0.015,
     GAS_PRICE_STEP_HIGH: 0.025,
     FEATURES: ['ibc-transfer', 'ibc-go'],
 };
